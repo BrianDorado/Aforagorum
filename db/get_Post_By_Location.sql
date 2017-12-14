@@ -1,0 +1,1 @@
+SELECT * FROM post WHERE region_id = $1 

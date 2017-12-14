@@ -1,0 +1,60 @@
+.profile-info {
+    display: flex;
+    justify-content: space-around;
+    border: 5px solid rgba(255, 255, 255, 0.597);
+    border-radius: 10px;
+    border-color: rgba(255, 255, 255, 0.796);
+    background: rgba(255, 255, 255, 0.33) ;
+    padding: 2%;
+    font-family: 'Vollkorn SC'
+
+}
+.add-companion {
+    font-size: 12px
+}
+.user-bio {
+    border: 5px solid rgba(255, 255, 255, 0.597);
+    border-radius: 10px;
+    border-color: rgba(255, 255, 255, 0.796);
+    background: rgba(255, 255, 255, 0.33) ;
+    padding: 2%;
+}
+
+.user-image img {
+    max-height: 20vh;
+    border-radius: 10px;
+}
+.user-bio-input {
+    width: 100% !important ;
+    font-family: 'Vollkorn SC' !important;
+}
+.user-links {
+    display: flex;
+    flex-direction: column;
+}
+.url-input-addon {
+    display: flex;
+    margin: auto;
+    font-family: 'Vollkorn SC'
+    
+}
+.user-link-input {
+    width: 30vw;
+}
+.save-button {
+    display: flex;
+    justify-content: center;
+}
+.save {
+    background: rgba(3, 192, 3, 0.885) !important ;
+     font-family: 'Vollkorn SC', serif !important;
+    
+}
+.contributions {
+    display: flex;
+    justify-content: space-around
+}
+.save-snackbar {
+    width: 40% !important;
+    text-align: center !important;
+}

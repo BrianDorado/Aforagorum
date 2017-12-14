@@ -1,0 +1,17 @@
+.App {
+  background-image: url('./img/photo-1506143925201-0252c51780b0.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  
+}
+.router{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+  margin-top: calc(80px + 13vh);
+  
+}
+
+
+

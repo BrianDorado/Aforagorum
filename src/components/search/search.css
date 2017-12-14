@@ -1,0 +1,35 @@
+
+.search-container {
+    font-family: 'Vollkorn SC', serif !important;
+}
+.search-by-select {
+        display: flex;
+        width: 90vw;
+        justify-content: space-around;
+        margin-bottom: 10%
+}
+.search-divider {
+    display: flex;
+
+}
+.or {
+    margin: auto
+}
+.search-by-input {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10%
+}
+.user-input-search{
+    width: 20vw;
+    height: 20%;
+    
+}
+.post-card {
+    font-family: 'Vollkorn SC', serif !important;
+    
+}
+/* .results { meida query to display multiple results per line 
+    display: flex;
+    justify-content: space-around;
+} */

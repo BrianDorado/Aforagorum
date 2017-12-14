@@ -1,0 +1,7 @@
+.about-text {
+    border: 5px solid rgba(255, 255, 255, 0.597);
+    border-radius: 10px;
+    border-color: rgba(255, 255, 255, 0.796);
+    background: rgba(255, 255, 255, 0.33) ;
+    padding: 2%;
+}

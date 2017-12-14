@@ -1,0 +1,21 @@
+.post-header {
+    display: flex; 
+    flex-direction: column;
+    width: 80vw
+}
+.title-input {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    z-index: 950
+}
+
+.story-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+.button {
+    display: flex;
+    margin: auto
+}

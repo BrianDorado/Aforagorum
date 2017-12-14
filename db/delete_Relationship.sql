@@ -1,0 +1,1 @@
+DELETE FROM relationships WHERE user1_id = $1 OR user2_id = $1 AND status = 2

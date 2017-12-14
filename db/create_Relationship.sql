@@ -1,0 +1,1 @@
+INSERT INTO relationships Values ($1, $2, $3, 1)
