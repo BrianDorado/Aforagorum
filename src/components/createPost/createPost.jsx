@@ -3,6 +3,7 @@ import SimpleAdress from './../google/googlePlaces';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';  
 import { getUser } from './../../ducks/users';   
+import Snackbar from 'material-ui/Snackbar';  
 import { connect } from 'react-redux';
 import axios from 'axios'; 
 import './createPost.css'
@@ -17,9 +18,12 @@ class CreatePost extends Component {
 
     saveInput(){
         let newPost = {
-            // title: e.target.value,
-            location: this.refs.location.value,
-            body: this.refs.body.refs
+            author: this.props.user.firstname,
+            title: this.ref.body.value,
+            body: this.refs.body.value,
+            auth_id: this.props.match.params.id,
+            region_id: this.refs.location.value 
+
         }
         console.log(newPost)
             axios.post('/create/post', newPost)
@@ -38,13 +42,8 @@ componentDidMount(){
                     errorText="This field is required"
                     ref ='title'
                     />
-                    {/* <TextField
-                    floatingLabelText = 'Location'
-                    errorText = "This field is required"
-                    ref ='location'
-                    >
-                    </TextField> */}
-                    <SimpleAdress />
+                   
+                    <SimpleAdress ref ='location' />
                 </section>
                 <section className='story-input'>
                     <TextField

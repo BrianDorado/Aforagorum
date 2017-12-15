@@ -41,10 +41,8 @@ passport.use( new Auth0Strategy({
     db.get_User_email([userData.email]).then( user => {
         console.log()
         if (user[0]){
-            // console.log('brians idea', user[0])
             return done(null, user[0].id)
         } else {
-            // console.log('andrews idea')
             db.create_User([userData.email, userData.given_name, userData.family_name, userData.nickname, userData.locale, userData.picture] )
             .then( user => {
                 return done(null, userData[0].id)
@@ -92,8 +90,8 @@ app.get('/auth/logout', function( req, res, next){
 app.get('/user/:id', controller.get_User ) // user
 app.get('/user/companions', controller.get_relationships ) // friends
 app.get('/post', controller.get_allPost ) 
-app.get('/post/locale', controller.get_post_by_user)
-app.get('/post/user', controller.get_post_by_user)
+app.get('/post/locale/:id', controller.get_post_by_user)
+app.get('/post/user/:author', controller.get_post_by_user)
 
 
 // === PUT REQUESTS === //

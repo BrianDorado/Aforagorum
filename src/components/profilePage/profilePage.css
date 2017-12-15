@@ -19,6 +19,17 @@
     background: rgba(255, 255, 255, 0.33) ;
     padding: 2%;
 }
+.user-bio-text {
+    height: 10vh;
+    width: 100%;
+    border:  1px solid red
+}
+.user-bio input{
+    background: none;
+    border: none;
+    width: 100%;
+    outline: none;
+}
 
 .user-image img {
     max-height: 20vh;

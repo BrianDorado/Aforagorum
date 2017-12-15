@@ -1,1 +1,1 @@
-SELECT * FROM  post WHERE auth_id = $1 
+SELECT * FROM  post WHERE author = $1 

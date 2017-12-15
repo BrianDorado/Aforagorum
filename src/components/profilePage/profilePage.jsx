@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import './profilePage.css'
 import ProfileView from './../profileView/profileView';  
-import TextField from 'material-ui/TextField';  
-import FlatButton from 'material-ui/FlatButton';  
 import RaisedButton from 'material-ui/RaisedButton'
+import FlatButton from 'material-ui/FlatButton';  
+import TextField from 'material-ui/TextField';  
 import Snackbar from 'material-ui/Snackbar';  
-import {connect } from 'react-redux';  
 import {getUser} from './../../ducks/users';  
+import {connect } from 'react-redux';  
 import axios from 'axios';  
+import './profilePage.css'
 
 
 class Profile extends Component {
@@ -20,7 +20,9 @@ class Profile extends Component {
     this.editClickHandler = this.editClickHandler.bind(this);
     this.saveChange = this.saveChange.bind(this);
     this.saveAndDisable = this.saveAndDisable.bind(this)
+    
     }
+
         editClickHandler() {
             this.setState({
                 disabled: !this.state.disabled
@@ -35,18 +37,22 @@ class Profile extends Component {
 
         saveInput(){
             let updates = {
-                plus: this.refs.google.value,
-                fb: this.refs.facebook.value,
-                ig: this.refs.instagram.value,
-                tw: this.refs.twitter.value,
-                ut: this.refs.youtube.value
+                bio: this.refs.bio.value,
+                linkplus: this.refs.google.value,
+                linkfb: this.refs.facebook.value,
+                linkig: this.refs.instagram.value,
+                linktw: this.refs.twitter.value,
+                linkut: this.refs.youtube.value
             }
-            axios.put('/user', updates )
+            axios.put('/user/'+ this.props.match.params.id, updates )
         }
         saveAndDisable(){
             this.editClickHandler()
             this.saveChange()
             this.saveInput()
+        }
+        updateInfo(e){
+            console.log(e.target.name)
         }
 
     componentDidMount(){
@@ -88,49 +94,64 @@ class Profile extends Component {
                 </section>
                 <br/>
                 <section className="user-bio">
-                 {this.props.user && this.props.user.bio}
-                 <div className='user-bio-input'>
-                        
-                     <TextField
-                      floatingLabelText = 'Bio'
-                      floatingLabelStyle = {{
-                          color: "blueGrey300"
-                      }}
-                      underlineFocusStyle ={{
-                          borderColor: "blueGrey500"
-                      }}
-                      
-                      multiLine = {true}
-                      rowsMax={4}
-                      style={{
-                          width: '100%',
-                      }}
-                      disabled = {this.state.disabled}
-                        
+                    <div className = 'bio-text'>
+                        {this.props.user && this.props.user.bio}
+                    </div>
+                    <input 
+                        type="text"
+                        ref = 'bio'
+                        disabled = {this.state.disabled}
+                        // placeholder = 'Your bio here'
                      />
-                   
-                 </div>
                 </section>
                 <br/>
                 <section className="user-links">
                     <span className="url-input-addon">http://plus.google.com/
-                    <input type="text" className='user-link-input' ref = 'google' disabled={this.state.disabled}/>
+                    <input 
+                        type="text" 
+                        className='user-link-input'
+                        ref = 'google' 
+                        disabled={this.state.disabled}
+                        />
                     </span>
                     <br/>
                     <span className="url-input-addon">http://www.facebook.com/
-                    <input type="text" className='user-link-input' ref ='facebook' disabled={this.state.disabled}/>
+                    <input 
+                         type="text"
+                         className='user-link-input' 
+                         ref ='facebook' 
+                         name = 'linkfb'
+                         disabled={this.state.disabled}
+                         onChange={this.updateInfo}
+                         value ={this.props.user && this.props.user.linkfb}
+                         />
                     </span>
                     <br/>
                     <span className="url-input-addon">http://www.instagram.com/
-                    <input type="text" className='user-link-input' ref = 'instagram' disabled={this.state.disabled}/>
+                    <input
+                        type="text" 
+                        className='user-link-input' 
+                        ref = 'instagram' 
+                        disabled={this.state.disabled}
+                        />
                     </span>
                     <br/>
                     <span className="url-input-addon">http://www.twitter.com/
-                    <input type="text" className='user-link-input' ref='twitter' disabled={this.state.disabled}/>
+                    <input 
+                        type="text" 
+                        className='user-link-input' 
+                        ref='twitter' 
+                        disabled={this.state.disabled}
+                        />
                     </span>
                     <br/>
                     <span className="url-input-addon">http://www.youtube.com/
-                    <input type="text" className='user-link-input' ref='youtube' disabled={this.state.disabled}/>
+                    <input 
+                        type="text" 
+                        className='user-link-input'
+                        ref='youtube' 
+                        disabled={this.state.disabled}
+                        />
                     </span>
                 </section>
                 <br/>

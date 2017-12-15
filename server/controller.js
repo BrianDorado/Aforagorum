@@ -8,6 +8,7 @@ module.exports = {
     },
     create_reply: (req, res ) => {
         const dbInstance = req.app.get('db')
+            const {} = req.body
         dbInstance.create_reply()
         .then( () => res.status(200).send(reply))
     },
@@ -18,7 +19,9 @@ module.exports = {
     },
     edit_User_Information: (req, res ) => {
         const dbInstance = req.app.get('db')
-        dbInstance.edit_User_Information()
+        const {bio, linkplus, linkfb, linkig, linkut} = req.body
+        
+        dbInstance.edit_User_Information(req.params.id, bio, linkplus, linkfb, linkig, linkut)
         .then( (user) => res.status(200).send(user))
     },
     get_allPost: (req, res) => {
@@ -33,7 +36,7 @@ module.exports = {
     },
     get_post_by_user: (req, res) => {
         const dbInstance = req.app.get('db')
-        dbInstance.get_Post_By_User()
+        dbInstance.get_Post_By_User(req.body.user)
         .then((post) => res.status(200).send(post))
     },
     get_relationships: (req, res ) => {

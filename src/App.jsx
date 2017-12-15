@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { HashRouter, Route } from 'react-router-dom';
-import './reset.css';
-import './App.css';
-import Header from './components/header/header'
+import OtherUserProfile from './components/profileView/profileView';  
 import LandingPage from './components/landingPage/landingPage';
+import CreatePost from './components/createPost/createPost';
+import Profile from './components/profilePage/profilePage' ;
 import HomePage from './components/homePage/homePage';
+import { HashRouter, Route } from 'react-router-dom';
+import Header from './components/header/header'
 import Forum from './components/Forum/forum';
-import Profile from './components/profilePage/profilePage'
 import About from './components/about/about';
 import Search from './components/search/search ';
-import OtherUserProfile from './components/profileView/profileView';  
 import ViewPost from './components/viewPost/viewPost';  
-import CreatePost from './components/createPost/createPost';
 import UserFriends from './components/friends/friends';  
 import { MuiThemeProvider } from 'material-ui/styles';
+import './reset.css';
+import './App.css';
 
 
 

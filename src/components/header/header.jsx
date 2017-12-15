@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Motion, StaggeredMotion, spring} from 'react-motion';
-import  { Link } from 'react-router-dom'
-import './header.css'
 import CompassRose from './../../img/compass_rose_by_draconicparagon-d6rjgqi.png'
-import home from './../../img/HomeIcon.png'
-import range from 'lodash'
+import { Motion, StaggeredMotion, spring} from 'react-motion';
+import { getUser } from './../../ducks/users';   
+import home from './../../img/HomeIcon.png';
+import  { Link } from 'react-router-dom';
 import Drawer from 'material-ui/Drawer';  
 import { connect } from 'react-redux';  
-import { getUser } from './../../ducks/users';   
+import range from 'lodash'
+import './header.css'
 
 
 const MAIN_BUTTON_DIAM = 90,
