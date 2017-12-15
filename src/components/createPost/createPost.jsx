@@ -52,13 +52,18 @@ componentDidMount(){
                         type="text" 
                         placeholder='  Title'
                         className='title'
+                        required 
                         />
                    
                     <SimpleAdress ref ='location' />
                 </section>
                 <br/>
                 <section className='story-input'>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <textarea
+                     name="" id="" cols="30" rows="10"
+                     required 
+                     >
+                     </textarea>
                     </section>
                     
                     <section className='button'>

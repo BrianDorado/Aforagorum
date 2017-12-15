@@ -32,9 +32,9 @@ class Search extends Component {
     render() {
         return (
             <div className='search-container'>
-              <section className='search-by-input'>
-              <div>Search by location</div>
-                <SimpleAddress ref ='location' />
+              <section className = 'search-by-input' >
+                <div>Search by location</div>
+                <input type="text" placeholder ="Location" ref = 'location'/>
                 <RaisedButton
                 primary = {true}
                 onClick = {this.submitLocation}
@@ -43,8 +43,8 @@ class Search extends Component {
                 </RaisedButton>
               </section>
               <section className="search-by-input">
-                <div>Search by User</div>
-                <input type="text" placeholder='  Search for a user' ref = 'user'/>
+                <div>Search by User Name</div>
+                <input type="text" placeholder='  User' ref = 'user'/>
                 <RaisedButton
                 primary = {true}
                 onClick = {this.submitUser}
