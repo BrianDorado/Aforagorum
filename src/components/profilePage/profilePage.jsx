@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import ProfileView from './../profileView/profileView';  
 import RaisedButton from 'material-ui/RaisedButton'
-import FlatButton from 'material-ui/FlatButton';  
-import TextField from 'material-ui/TextField';  
+import FlatButton from 'material-ui/FlatButton';   
+import  {getUser } from './../../ducks/users';  
 import Snackbar from 'material-ui/Snackbar';  
-import {getUser} from './../../ducks/users';  
-import {connect } from 'react-redux';  
+import { connect } from 'react-redux';  
 import axios from 'axios';  
 import './profilePage.css'
 

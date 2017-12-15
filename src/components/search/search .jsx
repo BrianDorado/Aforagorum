@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';  
 import SimpleAddress from './../google/googlePlaces';  
 import RaisedButton from 'material-ui/RaisedButton';
-import SelectField from 'material-ui/SelectField'; 
-import TextField from 'material-ui/TextField';  
-import MenuItem from 'material-ui/MenuItem';  
 import axios from 'axios';
 import './search.css' 
 

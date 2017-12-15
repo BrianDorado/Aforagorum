@@ -12,7 +12,11 @@ import './createPost.css'
 class CreatePost extends Component {
     constructor(props){
         super(props);
-        this.saveInput = this.saveInput.bind(this)
+        this.state = {
+            open: false
+        }
+    this.saveInput = this.saveInput.bind(this)
+    this.handleSnackbar = this.handleSnackbar.bind(this)
     }
 
 
@@ -29,6 +33,13 @@ class CreatePost extends Component {
             axios.post('/create/post', newPost)
     }
 
+    handleSnackbar(){
+        this.setState({
+            open: !this.state.open
+        })
+        // window.location.assign('https://google.com')
+    }
+
 componentDidMount(){
     this.props.getUser(this.props.match.params.id)
 }
@@ -37,35 +48,37 @@ componentDidMount(){
         return (
             <div className = 'post-header' >
                 <section className='title-input'>
-                    <TextField
-                    floatingLabelText = 'Title'
-                    errorText="This field is required"
-                    ref ='title'
-                    />
+                    <input 
+                        type="text" 
+                        placeholder='  Title'
+                        className='title'
+                        />
                    
                     <SimpleAdress ref ='location' />
                 </section>
+                <br/>
                 <section className='story-input'>
-                    <TextField
-                    floatingLabelText='Post body'
-                    multiLine={true}
-                    fullWidth={true}
-                    // rows = '4'
-                    errorText ="This field is required"
-                    ref = 'body'
-                    />
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
                     </section>
-                    <section>
-                    </section>
+                    
                     <section className='button'>
                         <RaisedButton
                         className='post-button'
                         primary={true}
-                        onClick = {this.saveInput}
+                        onClick = {this.handleSnackbar}
                         >
                             Post
                         </RaisedButton>
                     </section>
+                    <Snackbar
+                        open={this.state.open}
+                        message ="Posted!"
+                        autohideDuration = {3000}
+                        onRequestClose={(this.handleSnackbar)}
+                        className='post-snackbar'
+                    >
+
+                    </Snackbar>
                     
             </div>
         );

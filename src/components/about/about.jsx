@@ -29,7 +29,7 @@ class About extends Component {
                    <p>In its current state this app is just a test of some basic functionality. There are many things 
                        that are being worked on currently and many many more that are planned for the future. This 'app' is currently 
                        barely even in what you could call alpha. At this point all the data is 'dummy' data. To get a better idea of data flow 
-                       how to corretly process information from multiple users. 
+                       how to correctly process information from multiple users 
                        <br/>
                        <br/> In the future I 
                        <br/>
