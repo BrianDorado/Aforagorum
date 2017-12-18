@@ -2,10 +2,12 @@
   background-image: url('./img/photo-1506143925201-0252c51780b0.jpg');
   background-size: cover;
   background-attachment: fixed;
+  height: 100%;
   
 }
 .router{
-  height: 100vh;
+  height:100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   padding: 3%;
