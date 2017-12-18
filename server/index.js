@@ -15,7 +15,7 @@ const express = require('express'),
 // ========== MIDDLEWARE ========== //
 massive(process.env.CONNECTION_STRING).then(dbInstance => app.set('db', dbInstance));
 // ===== TOP LEVEL MIDDLEWARE ===== //
-
+app.use(express.static(__dirname + '/build'))
 app.use(bodyParser.json());
 app.use(cors());
 app.use(session({
