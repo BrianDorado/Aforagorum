@@ -211,7 +211,7 @@ class Header extends Component {
         let { isOpen } = this.state;
         let mainButtonRotation = 
             isOpen ? { rotate: spring(0, {stiffness: 500, damping: 30}) } : { rotate: spring(-135, {stiffness: 500, damping: 30}) };
-        console.log(this.props.user)
+        // console.log(this.props.user)
         return (
             <div className='header-container'>
                 {/* <Motion style = {mainButtonRotation}> */}

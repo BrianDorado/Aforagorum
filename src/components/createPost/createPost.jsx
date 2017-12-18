@@ -30,7 +30,6 @@ class CreatePost extends Component {
             // region_id: this.refs.location.value a
 
         }
-        console.log(newPost)
             axios.post('/create/post', newPost)
     }
 
@@ -47,7 +46,6 @@ componentDidMount(){
 }
 
     render() { 
-        console.log(this.refs.location)
         return (
             <div className = 'post-header' >
                 <section className='title-input'>
@@ -96,7 +94,6 @@ componentDidMount(){
 }
 
 function mapStateToProps(state){
-    console.log(state)
     return{
         user: state.userData
     }

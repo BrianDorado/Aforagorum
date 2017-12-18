@@ -52,7 +52,6 @@ class Profile extends Component {
             this.saveInput()
         }
         updateInfo(e){
-            console.log(e.target.name)
         }
 
     componentDidMount(){

@@ -33,7 +33,6 @@ module.exports = {
         const dbInstance = req.app.get('db')
         dbInstance.get_Post_By_Location([req.params.locale + '%'])
         .then((post) => res.status(200).send(post))
-        console.log(req.params.locale)
     },
     get_post_by_user: (req, res) => {
         const dbInstance = req.app.get('db')

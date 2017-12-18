@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Card, CardHeader, CardText } from 'material-ui/Card';  
 import RaisedButton from 'material-ui/RaisedButton';
-import axios from 'axios';
 import PostCards from './../postCards/postCards';  
+import axios from 'axios';
 import './search.css' 
 
 class Search extends Component {
@@ -30,7 +29,7 @@ class Search extends Component {
     submitUser(){
       let author = this.refs.author.value
       
-      console.log(author)
+
         axios.get(`/post/user/${author}` ).then((res) => {
           this.setState({
             responses: res.data 
@@ -43,16 +42,15 @@ class Search extends Component {
       const results = this.state.responses.map(responses =>{
         return (
           <PostCards
+          key = {responses.id}
           title = {responses.title}
-          
-          subtitle = {responses.author}
+          subtitle = {responses.locale}
           body = {responses.body}
+          cardTitle ={responses.author}
           />
         )  
             })
       
-
-
         return (
             <div className='search-container'>
               <section className = 'search-by-input' >
@@ -98,6 +96,4 @@ class Search extends Component {
         );
     }
 }
-
 export default Search; 
-

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardHeader, CardText } from 'material-ui/Card';  
+import { Card, CardHeader, CardText, CardTitle } from 'material-ui/Card';  
 
 class postCards extends Component {
     render() {
@@ -16,7 +16,10 @@ class postCards extends Component {
                 expandable={true}
                 >
                 {this.props.body}
-                        </CardText>
+                 </CardText>
+                 <CardTitle
+                 subtitle={this.props.cardTitle}
+                 />
             </Card> 
             </div>
         );

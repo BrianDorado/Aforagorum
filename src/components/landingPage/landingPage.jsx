@@ -8,7 +8,6 @@ class LandingPage extends Component {
           <div className='landingpage-container'>
                     <a href={process.env.REACT_APP_LOGIN}>
                         <button className='login-button'>Login</button>
-                        {console.log()}
                     </a>
             </div>
         );
