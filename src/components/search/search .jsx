@@ -16,9 +16,7 @@ class Search extends Component {
   }
 
     submitLocation(){
-
       let  location = this.refs.location.value
-      
         axios.get(`/post/locale/${location}`).then((res) => {
           this.setState({
             responses: res.data
@@ -28,8 +26,6 @@ class Search extends Component {
 
     submitUser(){
       let author = this.refs.author.value
-      
-
         axios.get(`/post/user/${author}` ).then((res) => {
           this.setState({
             responses: res.data 

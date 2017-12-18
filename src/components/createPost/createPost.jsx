@@ -38,7 +38,7 @@ class CreatePost extends Component {
             open: !this.state.open
         })
         this.saveInput()
-        window.location.assign('http://localhost:3000/#/search')
+        window.location.assign(process.env.REACT_APP_URL + '/#/search')
     }
 
 componentDidMount(){

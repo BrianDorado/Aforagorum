@@ -79,7 +79,7 @@ app.get('/auth/me', function(req, res, next){
 
 app.get('/auth/logout', function( req, res, next){
     req.logout()
-    res.redirect(process.env.AUTH_LANDINGPAGE_REDIRECT)
+    res.redirect(process.env.AUTH_SUCCESS_LANDINGPAGE)
 })
 
 // ===== CUSTOM MIDDLEWARE ===== //

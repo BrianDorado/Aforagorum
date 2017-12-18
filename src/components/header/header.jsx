@@ -240,7 +240,7 @@ class Header extends Component {
                         <Link  to = "/forum" className='home-nav-link'>Forum</Link >
                         <Link  to = "/about" className='home-nav-link'>About</Link >
                         <Link to ='/help' className='home-nav-link'>Help and Feedback</Link>
-                        <a href = 'http://localhost:3030/auth/logout'className="home-nav-link">Logout</a>
+                        <a href = {process.env.REACT_APP_LOGOUT}className="home-nav-link">Logout</a>
                      </Drawer>
                     {/* < i className='fa fa-close fa-3x'/> */}
                     <section className='text-contaner'>
