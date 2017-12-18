@@ -234,9 +234,9 @@ class Header extends Component {
                         }}
                      >
                         <Link  to = "/home" className='home-nav-link'>Home</Link >
-                        <Link to= {`/profile/user/${this.props.user && this.props.user.id}`} className='home-nav-link'>Profile</Link >
+                        <Link to= {`/profile/user/${ this.props.user.id}`} className='home-nav-link'>Profile</Link >
                         <Link  to = "/search" className='home-nav-link'>Search</Link >
-                        <Link  to = "/forum/create" className='home-nav-link'>Create Post</Link >
+                        <Link  to = {`/forum/create/${this.props.user.id}`} className='home-nav-link'>Create Post</Link >
                         <Link  to = "/forum" className='home-nav-link'>Forum</Link >
                         <Link  to = "/about" className='home-nav-link'>About</Link >
                         <Link to ='/help' className='home-nav-link'>Help and Feedback</Link>
@@ -244,7 +244,7 @@ class Header extends Component {
                      </Drawer>
                     {/* < i className='fa fa-close fa-3x'/> */}
                     <section className='text-contaner'>
-                        <p> {this.props.user && this.props.user.username}</p>
+                        {this.props.user && <p>{this.props.user.username}</p>}
                     </section>
                 </div>
                 <div className="menu-margin">
@@ -258,7 +258,7 @@ class Header extends Component {
 
 function mapStateToProps(state){
     return {
-        user: state.userData[0]
+        user: state.userData
     }
 }
 export default connect(mapStateToProps, {getUser}) (Header);

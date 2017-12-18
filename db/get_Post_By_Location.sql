@@ -1,1 +1,1 @@
-SELECT * FROM post WHERE region_id = $1 
+SELECT * FROM post WHERE locale like $1

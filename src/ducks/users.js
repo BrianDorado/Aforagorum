@@ -7,13 +7,13 @@ const initialState = {
 }
 const GET_USER ='GET_USER'
 const GET_ALL_POST = 'GET_ALL_POST'
-const UPDATE_INFO = 'UPDATE_IINFO'
+const UPDATE_INFO = 'UPDATE_INFO'
 
 export function getUser(id){
     return {
         type: GET_USER,
-        payload: axios.get('/user/'+ id)
-        .then ( res => res.data )
+        payload: axios.get('/auth/me')
+        // .then ( res => res.data 
     }
 }
 export function updateInfo(host, value){
@@ -27,7 +27,8 @@ export function updateInfo(host, value){
 export default function reducer( state = initialState, action){
     switch(action.type){
         case GET_USER + '_FULFILLED':
-        return Object.assign({}, state, {userData: action.payload })
+        // console.log('something', action.payload)
+        return Object.assign({}, state, {userData: action.payload.data })
         case UPDATE_INFO:
         return Object.assign({},state,{userData: {[action.host]:action.payload}})
         default:
@@ -35,4 +36,3 @@ export default function reducer( state = initialState, action){
     }
 }
 
-//index.js:2177 Warning: A component is changing an uncontrolled input of type text to be controlled. Input elements should not switch from uncontrolled to controlled (or vice versa). Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://fb.me/react-controlled-components

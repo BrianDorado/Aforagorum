@@ -2,8 +2,8 @@
 module.exports = {
     create_Post: (req, res ) => {
         const dbInstance =  req.app.get('db')
-         const {author, title, body, auth_id, region_id} = req.body
-        dbInstance.create_Post(author, title, body, auth_id, region_id)
+         const {author, title, body, auth_id, locale} = req.body
+        dbInstance.create_Post(author, title, body, auth_id, locale)
         .then( (post) => res.status(200).send(post))
     },
     create_reply: (req, res ) => {
@@ -31,12 +31,13 @@ module.exports = {
     },
     get_post_by_location: (req, res ) => {
         const dbInstance = req.app.get('db')
-        dbInstance.get_Post_By_Location()
+        dbInstance.get_Post_By_Location([req.params.locale + '%'])
         .then((post) => res.status(200).send(post))
+        console.log(req.params.locale)
     },
     get_post_by_user: (req, res) => {
         const dbInstance = req.app.get('db')
-        dbInstance.get_Post_By_User(req.body.user)
+        dbInstance.get_Post_By_User(req.params.author)
         .then((post) => res.status(200).send(post))
     },
     get_relationships: (req, res ) => {
@@ -46,6 +47,8 @@ module.exports = {
     },
     get_User: (req, res) => {
         const dbInstance = req.app.get('db')
+        if ( !req.user && !req.params.id) res.status(200).send('Login required') 
+        return 
         let newId = req.params.id
         if ( newId === undefined) newId = req.user.id
         // console.log(req.user.id)

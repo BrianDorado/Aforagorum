@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SimpleAdress from './../google/googlePlaces';
 import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';  
 import { getUser } from './../../ducks/users';   
 import Snackbar from 'material-ui/Snackbar';  
 import { connect } from 'react-redux';
@@ -13,7 +12,8 @@ class CreatePost extends Component {
     constructor(props){
         super(props);
         this.state = {
-            open: false
+            open: false,
+            location: ''
         }
     this.saveInput = this.saveInput.bind(this)
     this.handleSnackbar = this.handleSnackbar.bind(this)
@@ -23,10 +23,11 @@ class CreatePost extends Component {
     saveInput(){
         let newPost = {
             author: this.props.user.firstname,
-            title: this.ref.body.value,
+            title: this.refs.title.value,
             body: this.refs.body.value,
             auth_id: this.props.match.params.id,
-            region_id: this.refs.location.value 
+            locale: this.refs.location.state.address // place holder for region id
+            // region_id: this.refs.location.value a
 
         }
         console.log(newPost)
@@ -37,14 +38,16 @@ class CreatePost extends Component {
         this.setState({
             open: !this.state.open
         })
-        // window.location.assign('https://google.com')
+        this.saveInput()
+        window.location.assign('http://localhost:3000/#/search')
     }
 
 componentDidMount(){
     this.props.getUser(this.props.match.params.id)
 }
 
-    render() {
+    render() { 
+        console.log(this.refs.location)
         return (
             <div className = 'post-header' >
                 <section className='title-input'>
@@ -53,19 +56,21 @@ componentDidMount(){
                         placeholder='  Title'
                         className='title'
                         required 
+                        autoFocus= {true}
+                        ref = 'title'
                         />
                    
-                    <SimpleAdress ref ='location' />
+                    <SimpleAdress ref = 'location' />
                 </section>
                 <br/>
                 <section className='story-input'>
                     <textarea
                      name="" id="" cols="30" rows="10"
+                     ref='body'
                      required 
                      >
                      </textarea>
                     </section>
-                    
                     <section className='button'>
                         <RaisedButton
                         className='post-button'
@@ -78,7 +83,7 @@ componentDidMount(){
                     <Snackbar
                         open={this.state.open}
                         message ="Posted!"
-                        autohideDuration = {3000}
+                        autoHideDuration = {3000}
                         onRequestClose={(this.handleSnackbar)}
                         className='post-snackbar'
                     >
@@ -91,8 +96,9 @@ componentDidMount(){
 }
 
 function mapStateToProps(state){
+    console.log(state)
     return{
-        user: state.userData[0]
+        user: state.userData
     }
 }
 

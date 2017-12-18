@@ -31,7 +31,7 @@ class SimpleAddressForm extends React.Component {
             onChange: this.onChange,
             type: 'search',
             placeholder: 'Search for a location...',
-            autoFocus: true
+            // autoFocus: true
         }
 
         return (

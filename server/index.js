@@ -39,7 +39,7 @@ passport.use( new Auth0Strategy({
     let auth_id = userData.sub.split('|')[1]
 
     db.get_User_email([userData.email]).then( user => {
-        console.log()
+        console.log(user)
         if (user[0]){
             return done(null, user[0].id)
         } else {
@@ -53,8 +53,8 @@ passport.use( new Auth0Strategy({
 
 app.get('/auth/login', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0',{
-    successRedirect: 'http://localhost:3000/#/about',
-    failureRedirect:'http://localhost:3000/#/'
+    successRedirect: process.env.AUTH_SUCCESS_REDIRECT,
+    failureRedirect: process.env.AUTH_LANDINGPAGE_REDIRECT
 }))
 
 passport.serializeUser(function(user, done){
@@ -72,14 +72,14 @@ app.get('/auth/me', function(req, res, next){
     if (!req.user){
         res.status(401).send('Login required!')
     }else {
-        console.log(req.user)
+        // console.log(req.user)
         res.status(200).send(req.user)
     }
 })
 
 app.get('/auth/logout', function( req, res, next){
     req.logout()
-    res.redirect('http://localhost:3000/#/')
+    res.redirect(process.env.AUTH_LANDINGPAGE_REDIRECT)
 })
 
 // ===== CUSTOM MIDDLEWARE ===== //
@@ -90,7 +90,7 @@ app.get('/auth/logout', function( req, res, next){
 app.get('/user/:id', controller.get_User ) // user
 app.get('/user/companions', controller.get_relationships ) // friends
 app.get('/post', controller.get_allPost ) 
-app.get('/post/locale/:id', controller.get_post_by_user)
+app.get('/post/locale/:locale', controller.get_post_by_location)
 app.get('/post/user/:author', controller.get_post_by_user)
 
 

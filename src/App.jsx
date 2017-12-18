@@ -34,7 +34,7 @@ class App extends Component {
             <Route path ='/profile/user/:id' component={Profile} />
             <Route path = '/user/profile/:id' component={OtherUserProfile}/> 
             <Route path = '/forum/post/:id' component={ViewPost}/> 
-            <Route path = '/forum/create' component={CreatePost}/> 
+            <Route path = '/forum/create/:id' component={CreatePost}/> 
             <Route path = '/profile/user/friends/:id' component={UserFriends}/> 
             </div>
         </div>

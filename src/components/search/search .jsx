@@ -1,35 +1,58 @@
 import React, { Component } from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';  
-import SimpleAddress from './../google/googlePlaces';  
 import RaisedButton from 'material-ui/RaisedButton';
 import axios from 'axios';
+import PostCards from './../postCards/postCards';  
 import './search.css' 
 
 class Search extends Component {
   constructor(){
     super();
+        this.state ={
+          responses: []
+        }
+    
     this.submitLocation = this.submitLocation.bind(this)
     this.submitUser = this.submitUser.bind(this)
   }
 
     submitLocation(){
-      let location = {
-        location: this.refs.location.value
-      }
-      console.log(location)
-        axios.get('/post/locale')
+
+      let  location = this.refs.location.value
+      
+        axios.get(`/post/locale/${location}`).then((res) => {
+          this.setState({
+            responses: res.data
+          })
+        })
     }
 
     submitUser(){
-      let user = {
-        user: this.refs.user.value
-      }
-      console.log(user)
-        axios.get('/post/user')
+      let author = this.refs.author.value
+      
+      console.log(author)
+        axios.get(`/post/user/${author}` ).then((res) => {
+          this.setState({
+            responses: res.data 
+          }) 
+        })
     }
 
 
     render() {
+      const results = this.state.responses.map(responses =>{
+        return (
+          <PostCards
+          title = {responses.title}
+          
+          subtitle = {responses.author}
+          body = {responses.body}
+          />
+        )  
+            })
+      
+
+
         return (
             <div className='search-container'>
               <section className = 'search-by-input' >
@@ -44,7 +67,7 @@ class Search extends Component {
               </section>
               <section className="search-by-input">
                 <div>Search by User Name</div>
-                <input type="text" placeholder='  User' ref = 'user'/>
+                <input type="text" placeholder='  User' ref = 'author'/>
                 <RaisedButton
                 primary = {true}
                 onClick = {this.submitUser}
@@ -54,16 +77,20 @@ class Search extends Component {
               </section>
               <br/>
               <section className='search-results'>
-                <div> <strong>Search Results </strong>
+                <div> 
+                  <strong>Search Results </strong>
+                    <br/>
                   <div>Filter by Post Author</div>
+                    <br/>
                   <div>Filter by Post Date </div>
+                    <br/>                    
                   <div>Filter by Post Name</div>
                 </div>
               </section>
               <br/> 
               <section className="search-display">
                 <div className='results'>
-                  
+                  {results}  
                 
                 </div>
               </section>
@@ -74,17 +101,3 @@ class Search extends Component {
 
 export default Search; 
 
-<Card className='post-cards'>
-  <CardHeader
-    title='Post title'
-    subtitle='Post Author'
-    actAsExpander={true}
-    showExpandableButton={true}
-  />
-  <CardText
-    expandable={true}
-  >
-    Here I will list my plan for terrorizing Gothem and how we should deal with the Batman. I will also
-                      list my video game weakness, darkest fears and dream vacation.
-                    </CardText>
-</Card> 

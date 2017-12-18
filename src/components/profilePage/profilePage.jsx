@@ -14,7 +14,8 @@ class Profile extends Component {
         super(props);
         this.state = {
             disabled: true,
-            open: false 
+            open: false,
+            userInput:''
         }
     this.editClickHandler = this.editClickHandler.bind(this);
     this.saveChange = this.saveChange.bind(this);
@@ -111,6 +112,7 @@ class Profile extends Component {
                         className='user-link-input'
                         ref = 'google' 
                         disabled={this.state.disabled}
+                        value={this.state.userInput}
                         />
                     </span>
                     <br/>
@@ -122,7 +124,7 @@ class Profile extends Component {
                          name = 'linkfb'
                          disabled={this.state.disabled}
                          onChange={this.updateInfo}
-                         value ={this.props.user && this.props.user.linkfb}
+                         value ={this.state.userInput}
                          />
                     </span>
                     <br/>
@@ -132,6 +134,7 @@ class Profile extends Component {
                         className='user-link-input' 
                         ref = 'instagram' 
                         disabled={this.state.disabled}
+                        value={this.state.userInput}
                         />
                     </span>
                     <br/>
@@ -141,6 +144,7 @@ class Profile extends Component {
                         className='user-link-input' 
                         ref='twitter' 
                         disabled={this.state.disabled}
+                        value={this.state.userInput}
                         />
                     </span>
                     <br/>
@@ -150,6 +154,7 @@ class Profile extends Component {
                         className='user-link-input'
                         ref='youtube' 
                         disabled={this.state.disabled}
+                        value={this.state.userInput}
                         />
                     </span>
                 </section>
@@ -186,7 +191,7 @@ class Profile extends Component {
 
 function mapStateToProps(state){
     return {
-        user: state.userData[0]
+        user: state.userData
     }
 };
 

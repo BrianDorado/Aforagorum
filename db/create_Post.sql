@@ -1,1 +1,1 @@
-INSERT INTO post (author, title, body, auth_id, region_id) VALUES  ($1, $2, $3, $4, $5 )
+INSERT INTO post (author, title, body, auth_id, locale) VALUES  ($1, $2, $3, $4, $5 )
