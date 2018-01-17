@@ -111,7 +111,7 @@ class Profile extends Component {
                         className='user-link-input'
                         ref = 'google' 
                         disabled={this.state.disabled}
-                        value={this.state.userInput}
+                        // value={this.state.userInput}
                         />
                     </span>
                     <br/>
@@ -123,7 +123,7 @@ class Profile extends Component {
                          name = 'linkfb'
                          disabled={this.state.disabled}
                          onChange={this.updateInfo}
-                         value ={this.state.userInput}
+                        //  value ={this.state.userInput}
                          />
                     </span>
                     <br/>
@@ -133,7 +133,7 @@ class Profile extends Component {
                         className='user-link-input' 
                         ref = 'instagram' 
                         disabled={this.state.disabled}
-                        value={this.state.userInput}
+                        // value={this.state.userInput}
                         />
                     </span>
                     <br/>
@@ -143,7 +143,7 @@ class Profile extends Component {
                         className='user-link-input' 
                         ref='twitter' 
                         disabled={this.state.disabled}
-                        value={this.state.userInput}
+                        // value={this.state.userInput}
                         />
                     </span>
                     <br/>
@@ -153,7 +153,7 @@ class Profile extends Component {
                         className='user-link-input'
                         ref='youtube' 
                         disabled={this.state.disabled}
-                        value={this.state.userInput}
+                        // value={this.state.userInput}
                         />
                     </span>
                 </section>

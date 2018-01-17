@@ -9,9 +9,8 @@ class About extends Component {
                <section className="about-text">
                 <strong>What is it?</strong>
                 <br/>
-                <h1>If your like me and have done a fair amount of travelling. You have done the Eiffle tower, the 
-                    colloseum, the tower of London several times over. Its time to ditch the cliche touristy trips
-                    and get to know the country you are visiting. 
+                    <h1>If you are like me and have done a fair amount of travelling. You have done the Eiffel Tower, the 
+                    colosseum, the Tower of London several times over. That is all.
                 </h1>
                </section>
                <br/>

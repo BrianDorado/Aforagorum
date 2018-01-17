@@ -239,7 +239,7 @@ class Header extends Component {
                         <Link  to = {`/forum/create/${this.props.user.id}`} className='home-nav-link'>Create Post</Link >
                         <Link  to = "/forum" className='home-nav-link'>Forum</Link >
                         <Link  to = "/about" className='home-nav-link'>About</Link >
-                        <Link to ='/help' className='home-nav-link'>Help and Feedback</Link>
+                        <Link to ='/feedback' className='home-nav-link'>Help and Feedback</Link>
                         <a href = {process.env.REACT_APP_LOGOUT}className="home-nav-link">Logout</a>
                      </Drawer>
                     {/* < i className='fa fa-close fa-3x'/> */}

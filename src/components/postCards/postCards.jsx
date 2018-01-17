@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardHeader, CardText, CardTitle } from 'material-ui/Card';  
+import { Card, CardHeader, CardText, CardTitle, CardActions } from 'material-ui/Card';  
 
 class postCards extends Component {
     render() {

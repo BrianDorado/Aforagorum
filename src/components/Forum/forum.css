@@ -1,0 +1,12 @@
+.post-header {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 700px){
+    .post-results {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        /* grid-template-rows: 0px; */
+    }
+}

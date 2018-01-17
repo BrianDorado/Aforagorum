@@ -15,7 +15,7 @@ const express = require('express'),
 // ========== MIDDLEWARE ========== //
 massive(process.env.CONNECTION_STRING).then(dbInstance => app.set('db', dbInstance));
 // ===== TOP LEVEL MIDDLEWARE ===== //
-app.use(express.static(__dirname + '/build'))
+app.use(express.static(__dirname + '/../build'))
 app.use(bodyParser.json());
 app.use(cors());
 app.use(session({
@@ -35,7 +35,7 @@ passport.use( new Auth0Strategy({
 }, function(accessToke, refreshToken, extraParams, profile, done){
     const db = app.get('db')
     let userData = profile._json
-    // console.log(userData)
+    console.log(userData)
     let auth_id = userData.sub.split('|')[1]
 
     db.get_User_email([userData.email]).then( user => {

@@ -14,6 +14,7 @@ import UserFriends from './components/friends/friends';
 import { MuiThemeProvider } from 'material-ui/styles';
 import './reset.css';
 import './App.css';
+import Feedback from './components/askAQuestion/askAQuestion';  
 
 
 
@@ -36,6 +37,7 @@ class App extends Component {
             <Route path = '/forum/post/:id' component={ViewPost}/> 
             <Route path = '/forum/create/:id' component={CreatePost}/> 
             <Route path = '/profile/user/friends/:id' component={UserFriends}/> 
+            <Route path = '/feedback' component={Feedback}/> 
             </div>
         </div>
        </HashRouter> 
@@ -46,5 +48,3 @@ class App extends Component {
 
 
 export default App;
-
-
