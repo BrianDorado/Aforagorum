@@ -25,6 +25,9 @@ class About extends Component {
                 <br/>
                <section className='about-text'>
                    <strong>The future</strong>
+                   <p>Please be aware that this project is currently under going renovation. Many features
+                       are going to be adjusted, removed or introduced. 
+                   </p>
                    <p>In its current state this app is just a test of some basic functionality. There are many things 
                        that are being worked on currently and many many more that are planned for the future. This 'app' is currently 
                        barely even in what you could call alpha. At this point all the data is 'dummy' data. To get a better idea of data flow 

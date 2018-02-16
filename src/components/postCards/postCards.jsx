@@ -1,44 +1,37 @@
-import React, { Component } from 'react';
-import { Card, CardHeader, CardText, CardTitle, CardActions } from 'material-ui/Card';  
+import React from 'react';
+import './postCards.css' 
+import { Card, CardHeader, CardText, CardTitle, CardActions } from 'material-ui/Card'; 
+import FlatButton from 'material-ui/FlatButton'
+import {Link} from 'react-router-dom'
 
-class postCards extends Component {
-    render() {
+
+const postCards = (props) => {
+    
         return (
             <div className='post'>
-            <Card className='post-cards'>
-                <CardHeader
-                title={this.props.title}
-                subtitle={this.props.subtitle}
-                actAsExpander={true}
-                showExpandableButton={true}
-                />
-                <CardText
-                expandable={true}
-                >
-                {this.props.body}
-                 </CardText>
-                 <CardTitle
-                 subtitle={this.props.cardTitle}
-                 />
-            </Card> 
+                <Card className='post-cards'>
+                    <CardHeader
+                    title={props.title}
+                    subtitle={props.subtitle}
+                    actAsExpander={true}
+                    showExpandableButton={true}
+                    />
+                    <CardText
+                    expandable={true}
+                    >
+                    {props.body}
+                    <CardActions>
+                        <Link to ={`forum/post/${props.id} `}><FlatButton>View</FlatButton></Link>
+                        <FlatButton>Save</FlatButton>
+                        <FlatButton>Report</FlatButton>
+                    </CardActions>
+                    </CardText>
+                    <CardTitle
+                    subtitle={props.cardTitle}
+                    />
+                </Card> 
             </div>
         );
-    }
 }
 
 export default postCards;
-
-
-{/* <Card className='post-cards'>
-    <CardHeader
-        title={this.state.responses.title}
-        subtitle={this.state.responses.author}
-        actAsExpander={true}
-        showExpandableButton={true}
-    />
-    <CardText
-        expandable={true}
-    >
-        {this.state.responses[0].body}
-    </CardText>
-</Card>  */}

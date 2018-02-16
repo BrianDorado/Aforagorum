@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './profileView.css'
 import RaisedButton from 'material-ui/RaisedButton';
 
-class OtherUserProfile extends Component {
+class ProfileView extends Component {
     
 
     componentDidMount() {
@@ -41,8 +41,7 @@ class OtherUserProfile extends Component {
                 </section>
                 <br />
                 <section className="user-bio">
-                    {this.user_bio}Here I will give what street I grew up on, my mothers maiden name, favorite sports team,
-                 what my favorite food is and any other Personal identifiable information
+                    {this.user_bio}
                 </section>
                 <br />
                 <section className="user-links">
@@ -69,7 +68,7 @@ class OtherUserProfile extends Component {
                 <br />
                 <section className="contributions">
                     <div className="contr-links">
-                        Here will be links to all contributions
+                        {/* Here will be links to all contributions */}
                    </div>
                 </section>
 
@@ -77,6 +76,6 @@ class OtherUserProfile extends Component {
         );
     }
 }
-export default OtherUserProfile 
+export default ProfileView 
 
 // ternary for only displaying links with value 

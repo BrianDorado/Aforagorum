@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PostCards from './../postCards/postCards'
+// import '../'
 import './forum.css'
 import axios from 'axios'
 
@@ -24,6 +25,7 @@ class Forum extends Component {
            return(
                <PostCards
                    key={post.id}
+                   id={post.id}
                    title={post.title}
                    subtitle={post.locale}
                    body={post.body}
@@ -36,6 +38,7 @@ class Forum extends Component {
             <div>
                 <section className="post-header">
                     <strong>Recent Post</strong>
+                    <br/>
                     <div className='post-results'>
                      {results}
                     </div>

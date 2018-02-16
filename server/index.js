@@ -92,6 +92,7 @@ app.get('/user/companions', controller.get_relationships ) // friends
 app.get('/post', controller.get_allPost ) 
 app.get('/post/locale/:locale', controller.get_post_by_location)
 app.get('/post/user/:author', controller.get_post_by_user)
+app.get('/post/:id', controller.get_post_by_id)
 
 
 // === PUT REQUESTS === //

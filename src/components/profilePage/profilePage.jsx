@@ -3,6 +3,7 @@ import ProfileView from './../profileView/profileView';
 import RaisedButton from 'material-ui/RaisedButton'
 import FlatButton from 'material-ui/FlatButton';   
 import  {getUser } from './../../ducks/users';  
+import TextField from 'material-ui/TextField';
 import Snackbar from 'material-ui/Snackbar';  
 import { connect } from 'react-redux';  
 import axios from 'axios';  
@@ -56,29 +57,30 @@ class Profile extends Component {
 
     componentDidMount(){
        this.props.getUser(this.props.match.params.id)
+       console.log("user information", this.props.user);
     }
 
 
     render() {
-        return (
+        return this.props.user && (this.props.user.id !== this.props.match.params.id) ?
+        (
             <div>
                 <section className="profile-info">
                     <div className="user-image">
-                     <img src={this.props.user && this.props.user.user_img} alt="avatar"/>
+                     <img src={ this.props.user.user_img} alt="avatar"/>
                     </div>
                     <div className="user-name">
                         <div className="user-first-name">
                             <strong>
-                               {this.props.user && this.props.user.firstname}
+                               {this.props.user.firstname}
                             </strong>
                          </div>
                          <br/>
                         <div className="user-last-name">
-                            <h1>{ this.props.user && this.props.user.lastname}</h1>
+                            <h1>{this.props.user.lastname}</h1>
                         </div>
                     </div>
                     <div className="reputation">
-                        {/* {this.props.reputation} */}
                     </div>
                     <div className='edit'>
                         <FlatButton
@@ -94,13 +96,13 @@ class Profile extends Component {
                 <br/>
                 <section className="user-bio">
                     <div className = 'bio-text'>
-                        {this.props.user && this.props.user.bio}
+                        {this.props.user.bio}
                     </div>
-                    <input 
+                    <TextField
                         type="text"
                         ref = 'bio'
                         disabled = {this.state.disabled}
-                        // placeholder = 'Your bio here'
+                        defaultValue={this.props.user.bio}
                      />
                 </section>
                 <br/>
@@ -111,19 +113,19 @@ class Profile extends Component {
                         className='user-link-input'
                         ref = 'google' 
                         disabled={this.state.disabled}
-                        // value={this.state.userInput}
+                        defaultValue={this.props.user.linkplus}
                         />
                     </span>
                     <br/>
                     <span className="url-input-addon">http://www.facebook.com/
-                    <input 
+                    <input
                          type="text"
                          className='user-link-input' 
                          ref ='facebook' 
                          name = 'linkfb'
                          disabled={this.state.disabled}
                          onChange={this.updateInfo}
-                        //  value ={this.state.userInput}
+                         defaultValue ={this.props.user.linkfb}
                          />
                     </span>
                     <br/>
@@ -133,7 +135,7 @@ class Profile extends Component {
                         className='user-link-input' 
                         ref = 'instagram' 
                         disabled={this.state.disabled}
-                        // value={this.state.userInput}
+                        defaultValue={this.props.user.linkig}
                         />
                     </span>
                     <br/>
@@ -143,7 +145,7 @@ class Profile extends Component {
                         className='user-link-input' 
                         ref='twitter' 
                         disabled={this.state.disabled}
-                        // value={this.state.userInput}
+                        defaultValue={this.props.user.linktw}
                         />
                     </span>
                     <br/>
@@ -153,7 +155,7 @@ class Profile extends Component {
                         className='user-link-input'
                         ref='youtube' 
                         disabled={this.state.disabled}
-                        // value={this.state.userInput}
+                        defaultValue={this.props.user.linkut}
                         />
                     </span>
                 </section>
@@ -171,7 +173,7 @@ class Profile extends Component {
                 <br/> 
                 <section className="contributions">
                    <div className="contr-links">
-                    Here will be links to all contributions
+                    {/* Here will be links to all contributions */}
                    </div>
                 </section>
                 <Snackbar
@@ -184,7 +186,14 @@ class Profile extends Component {
                 </Snackbar>
             
             </div>
-        );
+        )
+            :
+          (
+            
+              <div>
+                  <ProfileView/>
+              </div>
+          )  
     }
 }
 

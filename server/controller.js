@@ -39,6 +39,12 @@ module.exports = {
         dbInstance.get_Post_By_User(req.params.author)
         .then((post) => res.status(200).send(post))
     },
+    get_post_by_id: (req, res) => {
+        const dbInstance = req.app.get('db')
+        console.log(req.params.id);
+        dbInstance.get_post_by_id(req.params.id)
+        .then((post) => res.status(200).send(post))
+    },
     get_relationships: (req, res ) => {
         const dbInstance = req.app.get('db')
         dbInstance.get_Reltionships()
@@ -47,7 +53,7 @@ module.exports = {
     get_User: (req, res) => {
         const dbInstance = req.app.get('db')
         if ( !req.user && !req.params.id) res.status(200).send('Login required') 
-        return 
+        console.log("Nates idea",req.params);
         let newId = req.params.id
         if ( newId === undefined) newId = req.user.id
         // console.log(req.user.id)

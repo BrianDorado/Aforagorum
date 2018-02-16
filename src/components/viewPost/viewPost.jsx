@@ -1,21 +1,37 @@
 import React, { Component } from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card'; 
 import './viewPost.css'
+import axios from 'axios'
 
 
 class ViewPost extends Component {
+
+    constructor(){
+        super()
+        this.state ={
+            post:[]
+        }
+    }
+
+    componentDidMount(){
+        axios.get(`post/${this.props.match.params.id}`).then((res)=>{
+            this.setState({
+                post: res.data[0]
+            })
+        })
+    }
+
     render() {
         return (
             <div className='post-thread'>
                 <section className='post-header'>
                     <Card className='post'>
                         <CardHeader
-                            title='Post title'
-                            subtitle='Post Author'
+                            title={this.state.post.title}
+                            subtitle={this.state.post.locale}
                         />
                         <CardText>
-                            Here I will list my plan for terrorizing Gothem and how we should deal with the Batman. I will also
-                      list my video game weakness, darkest fears and dream vacation.
+                           {this.state.post.body}
                     </CardText>
                     </Card>
                 </section>
@@ -35,7 +51,6 @@ class ViewPost extends Component {
                         <CardText
                             expandable={true}
                         >
-                            I will save Gothem! <br/>... Because I'm Batman! <br/> I also would like to see Iceland someday! 
                     </CardText>
                     </Card> 
 
