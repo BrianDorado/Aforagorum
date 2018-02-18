@@ -1,58 +1,50 @@
 import React, { Component } from 'react';
-import PostCards from './../postCards/postCards'
+import PostCards from './../postCards/postCards';
 // import '../'
-import './forum.css'
-import axios from 'axios'
-
+import './forum.css';
+import axios from 'axios';
 
 class Forum extends Component {
-    constructor(){
-        super()
-        this.state = {
-            post: []
-        }
-    }
+  constructor() {
+    super();
+    this.state = {
+      post: []
+    };
+  }
 
-    componentDidMount(){
-        axios.get('/post').then((res) => {
-            this.setState({
-                post: res.data
-            })
-        })
-    }
-    render() {
-       const results = this.state.post.map(post => {
-           return(
-               <PostCards
-                   key={post.id}
-                   id={post.id}
-                   title={post.title}
-                   subtitle={post.locale}
-                   body={post.body}
-                   cardTitle={post.author}
-               />
-           )
-       })
-        
-        return (
-            <div>
-                <section className="post-header">
-                    <strong>Recent Post</strong>
-                    <br/>
-                    <div className='post-results'>
-                     {results}
-                    </div>
+  componentDidMount() {
+    axios.get('/post').then(res => {
+      this.setState({
+        post: res.data
+      });
+    });
+  }
+  render() {
+    const results = this.state.post.map(post => {
+      return (
+        <PostCards
+          key={post.id}
+          id={post.id}
+          title={post.title}
+          subtitle={post.locale}
+          body={post.body}
+          cardTitle={post.author}
+        />
+      );
+    });
 
-                </section>
-                <section>
-
-                </section>
-                <section>{this.replies}</section>
-            </div>
-        );
-    }
+    return (
+      <div>
+        <section className="post-header">
+          <strong>Recent Post</strong>
+          <br />
+          <div className="post-results">{results}</div>
+        </section>
+        <section />
+        <section>{this.replies}</section>
+      </div>
+    );
+  }
 }
 
 export default Forum;
-
-//this.replies = {replies}
