@@ -5,7 +5,7 @@ import Feedback from './components/askAQuestion/askAQuestion';
 import CreatePost from './components/createPost/createPost';
 import Profile from './components/profilePage/profilePage';
 import HomePage from './components/homePage/homePage';
-import { HashRouter, Route } from 'react-router-dom';
+import { HashRouter, BrowserRouter, Route } from 'react-router-dom';
 import Header from './components/header/header';
 import Forum from './components/Forum/forum';
 import About from './components/about/about';
@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <HashRouter>
+        <BrowserRouter>
           <div className="App">
             <Header />
             <div className="router">
@@ -37,7 +37,7 @@ class App extends Component {
               <Route path="/feedback" component={Feedback} />
             </div>
           </div>
-        </HashRouter>
+        </BrowserRouter>
       </MuiThemeProvider>
     );
   }
