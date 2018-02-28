@@ -47,28 +47,28 @@ class Header extends Component {
               background: 'teal200'
             }}
           >
-            <Link to="/home" className="home-nav-link">
+            <Link to="/home" className="home-nav-link" onClick={this.handleToggle}>
               Home
             </Link>
-            <Link to={`/profile/user/${this.props.user.id}`} className="home-nav-link">
+            <Link to={`/profile/user/${this.props.user.id}`} className="home-nav-link" onClick={this.handleToggle}>
               Profile
             </Link>
             <Link to="/search" className="home-nav-link">
               Search
             </Link>
-            <Link to={`/forum/create/${this.props.user.id}`} className="home-nav-link">
+            <Link to={`/forum/create/${this.props.user.id}`} className="home-nav-link" onClick={this.handleToggle}>
               Create Post
             </Link>
-            <Link to="/forum" className="home-nav-link">
+            <Link to="/forum" className="home-nav-link" onClick={this.handleToggle}>
               Forum
             </Link>
-            <Link to="/about" className="home-nav-link">
+            <Link to="/about" className="home-nav-link" onClick={this.handleToggle}>
               About
             </Link>
-            <Link to="/feedback" className="home-nav-link">
+            <Link to="/feedback" className="home-nav-link" onClick={this.handleToggle}>
               Help and Feedback
             </Link>
-            <a href={process.env.REACT_APP_LOGOUT} className="home-nav-link">
+            <a href={process.env.REACT_APP_LOGOUT} className="home-nav-link" onClick={this.handleToggle}>
               Logout
             </a>
           </Drawer>

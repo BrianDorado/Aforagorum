@@ -8,40 +8,58 @@ class Forum extends Component {
   constructor() {
     super();
     this.state = {
-      post: []
+      post: [],
+      matches: [],
+      searchTerm: ''
     };
   }
+
+  defineSearchTerm = () => {
+    let arr = this.state.matches;
+    this.setState({
+      searchTerm: this.refs.searchInput.value
+    });
+  };
 
   componentDidMount() {
     axios.get('/post').then(res => {
       this.setState({
-        post: res.data
+        post: res.data,
+        matches: res.data
       });
     });
   }
   render() {
-    const results = this.state.post.map(post => {
-      return (
-        <PostCards
-          key={post.id}
-          id={post.id}
-          title={post.title}
-          subtitle={post.locale}
-          body={post.body}
-          cardTitle={post.author}
-        />
-      );
-    });
+    let filteredArray = this.state.post
+      .filter(
+        arr =>
+          `${arr.author} ${arr.locale} ${arr.title} ${arr.body} `
+            .toUpperCase()
+            .indexOf(this.state.searchTerm.toUpperCase()) >= 0
+      )
+      .map(post => {
+        return (
+          <PostCards
+            key={post.id}
+            id={post.id}
+            title={post.title}
+            subtitle={post.locale}
+            body={post.body}
+            cardTitle={post.author}
+          />
+        );
+      });
 
     return (
       <div>
+        <section>
+          <input type="text" onChange={this.defineSearchTerm} ref="searchInput" placeholder="Search" />
+        </section>
         <section className="post-header">
           <strong>Recent Post</strong>
           <br />
-          <div className="post-results">{results}</div>
+          <div className="post-results">{filteredArray}</div>
         </section>
-        <section />
-        <section>{this.replies}</section>
       </div>
     );
   }

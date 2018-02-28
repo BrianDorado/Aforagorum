@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
+import  RaisedButton  from 'material-ui/RaisedButton'
 import './viewPost.css';
 import axios from 'axios';
 
@@ -27,6 +28,10 @@ class ViewPost extends Component {
             <CardHeader title={this.state.post.title} subtitle={this.state.post.locale} />
             <CardText>{this.state.post.body}</CardText>
           </Card>
+        </section>
+        <br/>
+        <section>
+          <RaisedButton>Reply</RaisedButton> 
         </section>
         <br />
         <strong>Replies </strong>

@@ -8,7 +8,7 @@ class Search extends Component {
   constructor() {
     super();
     this.state = {
-      responses: []
+      responses: [],
     };
 
     this.submitLocation = this.submitLocation.bind(this);
