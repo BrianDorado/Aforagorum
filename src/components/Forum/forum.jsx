@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PostCards from './../postCards/postCards';
-// import '../'
 import './forum.css';
 import axios from 'axios';
 
@@ -9,13 +8,11 @@ class Forum extends Component {
     super();
     this.state = {
       post: [],
-      matches: [],
       searchTerm: ''
     };
   }
 
   defineSearchTerm = () => {
-    let arr = this.state.matches;
     this.setState({
       searchTerm: this.refs.searchInput.value
     });
@@ -24,13 +21,12 @@ class Forum extends Component {
   componentDidMount() {
     axios.get('/post').then(res => {
       this.setState({
-        post: res.data,
-        matches: res.data
+        post: res.data
       });
     });
   }
   render() {
-    let filteredArray = this.state.post
+    let postArrayMaliable = this.state.post
       .filter(
         arr =>
           `${arr.author} ${arr.locale} ${arr.title} ${arr.body} `
@@ -55,10 +51,11 @@ class Forum extends Component {
         <section>
           <input type="text" onChange={this.defineSearchTerm} ref="searchInput" placeholder="Search" />
         </section>
+        <br />
         <section className="post-header">
           <strong>Recent Post</strong>
           <br />
-          <div className="post-results">{filteredArray}</div>
+          <div className="post-results">{postArrayMaliable}</div>
         </section>
       </div>
     );
