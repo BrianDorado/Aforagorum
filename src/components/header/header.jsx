@@ -62,9 +62,6 @@ class Header extends Component {
             <Link to="/forum" className="home-nav-link" onClick={this.handleToggle}>
               Forum
             </Link>
-            <Link to="/about" className="home-nav-link" onClick={this.handleToggle}>
-              About
-            </Link>
             <Link to="/feedback" className="home-nav-link" onClick={this.handleToggle}>
               Help and Feedback
             </Link>
