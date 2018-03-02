@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import OtherUserProfile from './components/profileView/profileView';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Switch } from 'react-router-dom';
 import LandingPage from './components/landingPage/landingPage';
 import Feedback from './components/askAQuestion/askAQuestion';
 import CreatePost from './components/createPost/createPost';
@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <BrowserRouter>
+        <HashRouter>
           <div className="App">
             <Header />
             <div className="router">
@@ -36,7 +36,7 @@ class App extends Component {
               </Switch>
             </div>
           </div>
-        </BrowserRouter>
+        </HashRouter>
       </MuiThemeProvider>
     );
   }
