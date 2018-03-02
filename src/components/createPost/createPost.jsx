@@ -35,7 +35,7 @@ class CreatePost extends Component {
       open: !this.state.open
     });
     this.saveInput();
-    window.location.assign(process.env.REACT_APP_URL + '/forum' );
+    window.location.assign(process.env.REACT_APP_URL + 'forum' );
   }
 
   componentDidMount() {
