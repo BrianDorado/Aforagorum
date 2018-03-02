@@ -121,6 +121,11 @@ app.delete('/delete/post', controller.delete_post);
 app.delete('/delete/reply', controller.delete_reply);
 app.delete('/delete/friend', controller.delete_relationship);
 
+// ===== BrowserRouter ===== //
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
+
 app.listen(port || 3030, () => {
   console.log(`listening on port ${port}`);
 });

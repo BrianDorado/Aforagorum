@@ -53,9 +53,6 @@ class Header extends Component {
             <Link to={`/profile/user/${this.props.user.id}`} className="home-nav-link" onClick={this.handleToggle}>
               Profile
             </Link>
-            {/* <Link to="/search" className="home-nav-link">
-              Search
-            </Link> */}
             <Link to={`/forum/create/${this.props.user.id}`} className="home-nav-link" onClick={this.handleToggle}>
               Create Post
             </Link>
