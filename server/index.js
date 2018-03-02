@@ -9,7 +9,7 @@ const express = require('express'),
   massive = require('massive'),
   controller = require('./controller'),
   app = express(),
-  port = process.env.SERVER_PORT;
+  port = process.env.PORT;
 
 // ========== MIDDLEWARE ========== //
 massive(process.env.CONNECTION_STRING).then(dbInstance => app.set('db', dbInstance));
@@ -121,6 +121,6 @@ app.delete('/delete/post', controller.delete_post);
 app.delete('/delete/reply', controller.delete_reply);
 app.delete('/delete/friend', controller.delete_relationship);
 
-app.listen(port, () => {
+app.listen(port || 3030, () => {
   console.log(`listening on port ${port}`);
 });
