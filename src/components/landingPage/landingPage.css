@@ -1,9 +1,24 @@
+.landingpage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
 .login-button {
-    background: none;
-    border-width: 0px;
-    width: 150px;
-    height: 50px;
-    cursor: pointer;
-    font-family: 'Vollkorn SC', serif;
+  background: none;
+  border-width: 0px;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  font-family: 'Vollkorn SC', serif;
+  font-size: 30px;
+}
+
+.welcome-info-container {
+    padding-top: 4%;
+}
+
+.welcome-info-header {
     font-size: 30px;
 }
+
+
