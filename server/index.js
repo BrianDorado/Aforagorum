@@ -9,7 +9,8 @@ const express = require('express'),
   massive = require('massive'),
   controller = require('./controller'),
   app = express(),
-  port = process.env.PORT;
+  port = process.env.PORT,
+  path = require('path');
 
 // ========== MIDDLEWARE ========== //
 massive(process.env.CONNECTION_STRING).then(dbInstance => app.set('db', dbInstance));
