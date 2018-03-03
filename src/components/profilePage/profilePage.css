@@ -35,10 +35,7 @@
     max-height: 20vh;
     border-radius: 10px;
 }
-.user-bio-input {
-    width: 100% !important ;
-    font-family: 'Vollkorn SC' !important;
-}
+
 .user-links {
     display: flex;
     flex-direction: column;
@@ -56,16 +53,10 @@
     display: flex;
     justify-content: center;
 }
-.save {
-    background: rgba(3, 192, 3, 0.885) !important ;
-     font-family: 'Vollkorn SC', serif !important;
-    
-}
-.contributions {
-    display: flex;
-    justify-content: space-around
-}
+
+
 .save-snackbar {
     width: 40% !important;
     text-align: center !important;
+    margin: auto !important;
 }

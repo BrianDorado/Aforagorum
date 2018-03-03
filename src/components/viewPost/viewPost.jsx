@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
-import  RaisedButton  from 'material-ui/RaisedButton'
+import RaisedButton from 'material-ui/RaisedButton';
 import './viewPost.css';
 import axios from 'axios';
 
@@ -13,7 +13,7 @@ class ViewPost extends Component {
   }
 
   componentDidMount() {
-    axios.get(`post/${this.props.match.params.id}`).then(res => {
+    axios.get(`/post/${this.props.match.params.id}`).then(res => {
       this.setState({
         post: res.data[0]
       });
@@ -29,9 +29,9 @@ class ViewPost extends Component {
             <CardText>{this.state.post.body}</CardText>
           </Card>
         </section>
-        <br/>
+        <br />
         <section>
-          <RaisedButton>Reply</RaisedButton> 
+          <RaisedButton>Reply</RaisedButton>
         </section>
         <br />
         <strong>Replies </strong>

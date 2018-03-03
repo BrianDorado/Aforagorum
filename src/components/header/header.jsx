@@ -43,9 +43,7 @@ class Header extends Component {
             open={this.state.open}
             onRequestChange={open => this.setState({ open })}
             containerClassName="mui-menu"
-            containerStyle={{
-              background: 'teal200'
-            }}
+            
           >
             <Link to="/home" className="home-nav-link" onClick={this.handleToggle}>
               Home

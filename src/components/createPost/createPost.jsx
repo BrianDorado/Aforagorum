@@ -46,7 +46,7 @@ class CreatePost extends Component {
     return (
       <div className="post-header">
         <section className="title-input">
-          <input type="text" placeholder="  Title" className="title" required autoFocus={true} ref="title" />
+          <input type="text" placeholder="Title" className="title" required autoFocus={true} ref="title" />
 
           <SimpleAdress ref="location" />
         </section>

@@ -1,32 +1,33 @@
 .post-header {
-    display: flex; 
-    flex-direction: column;
-    width: 80vw
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
 }
 .title-input {
-    display: flex;
-    justify-content: space-around;
-    align-items: baseline;
-    z-index: 950;
-    padding: 2%
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  z-index: 950;
+  padding: 2%;
 }
 .title {
-    height: 5vh
+  padding: 1%;
 }
 .story-input {
-    display: flex;
-    flex-direction: column;
-    justify-content: center
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .story-input textarea {
-    font-family: 'Vollkorn SC', serif !important
+  font-family: 'Vollkorn SC', serif !important;
+  padding: 1%;
 }
 .button {
-    display: flex;
-    margin: auto
+  display: flex;
+  margin: auto;
 }
 .post-snackbar {
-    width: 35vw;
-    text-align: center;
-    font-family: 'Vollkorn SC', serif !important
+  width: 35vw;
+  text-align: center;
+  font-family: 'Vollkorn SC', serif !important;
 }

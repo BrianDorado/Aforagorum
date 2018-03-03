@@ -12,6 +12,9 @@
   font-family: 'Vollkorn SC', serif;
   font-size: 30px;
 }
+.login-button:checked {
+    border: none;
+}
 
 .welcome-info-container {
     padding-top: 4%;

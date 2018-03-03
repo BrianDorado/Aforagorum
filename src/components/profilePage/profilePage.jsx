@@ -54,7 +54,6 @@ class Profile extends Component {
 
   componentDidMount() {
     this.props.getUser(this.props.match.params.id);
-    console.log('user information', this.props.user);
   }
 
   render() {
@@ -75,20 +74,19 @@ class Profile extends Component {
           </div>
           <div className="reputation" />
           <div className="edit">
-            <FlatButton
-              style={{
-                fontFamily: 'Vollkorn SC, serif'
-              }}
-              onClick={this.editClickHandler}
-            >
+            <FlatButton onClick={this.editClickHandler}>
               EDIT
             </FlatButton>
           </div>
         </section>
         <br />
         <section className="user-bio">
-          <div className="bio-text">{this.props.user.bio}</div>
-          <TextField type="text" ref="bio" disabled={this.state.disabled} defaultValue={this.props.user.bio} />
+          <input 
+            type="text" 
+            ref="bio" 
+            disabled={this.state.disabled} 
+            defaultValue={this.props.user.bio} 
+          />
         </section>
         <br />
         <section className="user-links">

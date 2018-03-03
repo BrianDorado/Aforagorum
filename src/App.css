@@ -5,10 +5,16 @@
   height: 100%;
 }
 .router {
-  /* height:50%; */
   min-height: 72.8vh;
   display: flex;
   justify-content: center;
   padding: 3%;
   margin-top: calc(80px + 13vh);
+}
+
+@media (min-width: 700px) {
+  .App {
+      background-size: contain;
+      background-size: 100vw 110vh;
+  }
 }
