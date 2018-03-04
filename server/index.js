@@ -40,11 +40,11 @@ passport.use(
     function(accessToke, refreshToken, extraParams, profile, done) {
       const db = app.get('db');
       let userData = profile._json;
-      console.log(userData);
+      // console.log(userData);
       let auth_id = userData.sub.split('|')[1];
 
       db.get_User_email([userData.email]).then(user => {
-        console.log(user);
+        // console.log(user);
         if (user[0]) {
           return done(null, user[0].id);
         } else {
@@ -58,7 +58,8 @@ passport.use(
               userData.picture
             ])
             .then(user => {
-              return done(null, userData[0].id);
+              console.log(userData);
+              return done(null, userData.id);
             });
         }
       });
