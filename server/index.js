@@ -128,6 +128,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
-app.listen(port || 3030, () => {
+app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });

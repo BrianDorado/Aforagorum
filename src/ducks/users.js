@@ -4,7 +4,6 @@ const initialState = {
   userData: {}
 };
 const GET_USER = 'GET_USER';
-const GET_ALL_POST = 'GET_ALL_POST';
 const UPDATE_INFO = 'UPDATE_INFO';
 
 export function getUser(id) {

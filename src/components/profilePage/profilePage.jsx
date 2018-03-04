@@ -3,7 +3,6 @@ import ProfileView from './../profileView/profileView';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import { getUser } from './../../ducks/users';
-import TextField from 'material-ui/TextField';
 import Snackbar from 'material-ui/Snackbar';
 import { connect } from 'react-redux';
 import axios from 'axios';

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import OtherUserProfile from './components/profileView/profileView';
-import { BrowserRouter, HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LandingPage from './components/landingPage/landingPage';
 import Feedback from './components/askAQuestion/askAQuestion';
 import CreatePost from './components/createPost/createPost';
@@ -8,10 +7,7 @@ import Profile from './components/profilePage/profilePage';
 import HomePage from './components/homePage/homePage';
 import Header from './components/header/header';
 import Forum from './components/Forum/forum';
-import About from './components/about/about';
-import Search from './components/search/search ';
 import ViewPost from './components/viewPost/viewPost';
-import UserFriends from './components/friends/friends';
 import { MuiThemeProvider } from 'material-ui/styles';
 import './reset.css';
 import './App.css';
