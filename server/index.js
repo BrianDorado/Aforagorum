@@ -9,7 +9,7 @@ const express = require('express'),
   massive = require('massive'),
   controller = require('./controller'),
   app = express(),
-  port = process.env.PORT,
+  port = process.env.SERVER_PORT,
   path = require('path');
 
 // ========== MIDDLEWARE ========== //
@@ -58,8 +58,8 @@ passport.use(
               userData.picture
             ])
             .then(user => {
-              console.log(userData);
-              return done(null, userData.id);
+              console.log('Undefined User Data',user[0], user[0].id);
+              return done(null, );
             });
         }
       });
@@ -101,7 +101,6 @@ app.get('/auth/logout', function(req, res, next) {
   res.redirect(process.env.AUTH_SUCCESS_LANDINGPAGE);
 });
 
-// ===== CUSTOM MIDDLEWARE ===== //
 
 // ========== ENDPOINTS ========== //
 
