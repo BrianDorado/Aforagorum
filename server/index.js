@@ -44,7 +44,7 @@ passport.use(
       let auth_id = userData.sub.split('|')[1];
 
       db.get_User_email([userData.email]).then(user => {
-        // console.log(user);
+        // console.log('initial user data', user);
         if (user[0]) {
           return done(null, user[0].id);
         } else {
@@ -58,8 +58,9 @@ passport.use(
               userData.picture
             ])
             .then(user => {
-              console.log('Undefined User Data',user[0], user[0].id);
-              return done(null, );
+              // console.log('Undefined User Data',user[0]);
+              return done(null, userData.email);
+              // second paramete passed into deserializeUser as user
             });
         }
       });
@@ -82,7 +83,7 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(user, done) {
   const db = app.get('db');
-  db.find_User_by_session([user]).then(user => {
+  db.get_User_email([user]).then(user => {
     done(null, user[0]);
   });
 });
