@@ -128,6 +128,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
-app.listen(port, () => {
+app.listen(port || 3000git, () => {
   console.log(`listening on port ${port}`);
 });
