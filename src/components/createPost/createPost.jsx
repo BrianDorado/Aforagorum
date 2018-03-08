@@ -24,8 +24,7 @@ class CreatePost extends Component {
       title: this.refs.title.value,
       body: this.refs.body.value,
       auth_id: this.props.match.params.id,
-      locale: this.refs.location.state.address // place holder for region id
-      // region_id: this.refs.location.value a
+      locale: this.refs.location.state.address 
     };
     axios.post('/create/post', newPost);
   }
