@@ -9,7 +9,8 @@ const express = require('express'),
   massive = require('massive'),
   controller = require('./controller'),
   app = express(),
-  port = process.env.SERVER_PORT,
+  // port = process.env.SERVER_PORT, local dev distinguishing port from SERVER_PORT
+  port = process.env.PORT
   path = require('path');
 
 // ========== MIDDLEWARE ========== //
