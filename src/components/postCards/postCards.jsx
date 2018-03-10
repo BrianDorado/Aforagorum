@@ -16,7 +16,7 @@ const postCards = props => {
               <FlatButton>View</FlatButton>
             </Link>
             <FlatButton>Save</FlatButton>
-            <FlatButton>Report</FlatButton>
+            {/* <FlatButton>Report</FlatButton> */}
           </CardActions>
         </CardText>
         <CardTitle subtitle={props.cardTitle} />

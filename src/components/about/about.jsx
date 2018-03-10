@@ -16,12 +16,6 @@ class About extends Component {
         <br />
         <section className="about-text">
           <strong>How does it work?</strong>
-
-          <p>
-            Figure it out, tutorials are for noobs
-            <br />
-            Its fishing, its not that hard. He is a grown man and can figure it out himself
-          </p>
         </section>
         <br />
         <section className="about-text">

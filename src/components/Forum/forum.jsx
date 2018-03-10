@@ -1,16 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PostCards from './../postCards/postCards';
-// import '../'
-import './forum.css';
 import axios from 'axios';
+import './forum.css';
 
-class Forum extends Component {
-  constructor() {
-    super();
-    this.state = {
-      post: []
+class Forum extends React.Component {
+  state = {
+      post: [],
+      searchTerm: ''
     };
-  }
+  
+
+  defineSearchTerm = () => {
+    this.setState({
+      searchTerm: this.refs.searchInput.value
+    });
+  };
 
   componentDidMount() {
     axios.get('/post').then(res => {
@@ -20,28 +24,37 @@ class Forum extends Component {
     });
   }
   render() {
-    const results = this.state.post.map(post => {
-      return (
-        <PostCards
-          key={post.id}
-          id={post.id}
-          title={post.title}
-          subtitle={post.locale}
-          body={post.body}
-          cardTitle={post.author}
-        />
-      );
-    });
+    let postArrayMaliable = this.state.post
+      .filter(
+        arr =>
+          `${arr.author} ${arr.locale} ${arr.title} ${arr.body} `
+            .toUpperCase()
+            .indexOf(this.state.searchTerm.toUpperCase()) >= 0
+      )
+      .map(post => {
+        return (
+          <PostCards
+            key={post.id}
+            id={post.id}
+            title={post.title}
+            subtitle={post.locale}
+            body={post.body}
+            cardTitle={post.author}
+          />
+        );
+      });
 
     return (
       <div>
+        <section>
+          <input type="text" onChange={this.defineSearchTerm} ref="searchInput" placeholder="Search" />
+        </section>
+        <br />
         <section className="post-header">
           <strong>Recent Post</strong>
           <br />
-          <div className="post-results">{results}</div>
+          <div className="post-results">{postArrayMaliable}</div>
         </section>
-        <section />
-        <section>{this.replies}</section>
       </div>
     );
   }
