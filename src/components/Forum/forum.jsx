@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PostCards from './../postCards/postCards';
-import './forum.css';
 import axios from 'axios';
+import './forum.css';
 
-class Forum extends Component {
-  constructor() {
-    super();
-    this.state = {
+class Forum extends React.Component {
+  state = {
       post: [],
       searchTerm: ''
     };
-  }
+  
 
   defineSearchTerm = () => {
     this.setState({
