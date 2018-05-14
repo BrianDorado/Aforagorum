@@ -9,8 +9,8 @@ const express = require('express'),
   massive = require('massive'),
   controller = require('./controller'),
   app = express(),
-  // port = process.env.SERVER_PORT, local dev distinguishing port from SERVER_PORT
-  port = process.env.PORT
+  // port = process.env.SERVER_PORT, // Use this for local development
+  port = process.env.PORT // Use this for hosting on heroku
   path = require('path');
 
 // ========== MIDDLEWARE ========== //
@@ -45,9 +45,9 @@ passport.use(
       let auth_id = userData.sub.split('|')[1];
 
       db.get_User_email([userData.email]).then(user => {
-        // console.log('initial user data', user);
+        console.log('initial user data', user);
         if (user[0]) {
-          return done(null, user[0].id);
+          return done(null, user[0].email);
         } else {
           db
             .create_User([
@@ -61,7 +61,7 @@ passport.use(
             .then(user => {
               // console.log('Undefined User Data',user[0]);
               return done(null, userData.email);
-              // second paramete passed into deserializeUser as user
+              // second parameter passed into deserializeUser as user
             });
         }
       });
@@ -118,6 +118,7 @@ app.put('/user/:id', controller.edit_User_Information);
 // === POST REQUESTS === //
 app.post('/create/post', controller.create_Post);
 app.post('/create/reply', controller.create_reply);
+// app.post('/save/post/toUser', controller.get_User_email)
 
 // === DELETE REQUESTS === //
 app.delete('/delete/post', controller.delete_post);

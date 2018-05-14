@@ -179,13 +179,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { getUser })(Profile);
-
-// {/* {this.state.user === this.state.url_id ?
-//                own
-//             :
-//                other
-//             } */}
-
-//async function ...
-
-// await Promise.all

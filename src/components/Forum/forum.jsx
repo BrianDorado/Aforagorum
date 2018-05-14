@@ -17,6 +17,12 @@ class Forum extends Component {
       searchTerm: this.refs.searchInput.value
     });
   };
+  
+  savePosttoUser = () => {
+    axios.post('/save').then(res => {
+      
+    })
+  }
 
   componentDidMount() {
     axios.get('/post').then(res => {
