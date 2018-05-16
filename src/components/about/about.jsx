@@ -18,7 +18,7 @@ const About = () => {
       <section className="about-text">
         <strong>The future</strong>
         <p>
-          This project is mostly a 
+          This project is mostly nothing
         </p>
         <p>
           In its current state this app is just a test of some basic functionality. There are many things that are being
@@ -37,7 +37,3 @@ const About = () => {
 };
 
 export default About;
-
-//add liking system, reporting system, language and username fiter, view recent post, favorite post, add admin view,
-// trip advisor api, google maps api, yelp api, post tags(mui chips) eg- food-america-small/town, natural language grammer corrector
-// post img, message notifications, follow abilities, followed post notifications, reply notifications, reply to replies
